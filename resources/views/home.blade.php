@@ -45,15 +45,21 @@
                     </div>
                 </div>
 
-                <!-- Right Content - Image with Typing Animation -->
+                <!-- Right Content - Image Collage -->
                 <div class="relative">
-                    <!-- Main Image -->
-                    <div class="relative w-full h-80 lg:h-[400px] rounded-3xl overflow-hidden" id="hero-image">
+                    <!-- Large Main Image -->
+                    <div class="relative w-full h-80 lg:h-[400px] rounded-3xl overflow-hidden mb-6" id="hero-image">
                         <img src="{{ asset('assets/images/1.jpg') }}" alt="Varin SkillUp Academy Students"
                             class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                    </div>
 
+                        <!-- Small Image Overlay -->
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 lg:w-40 lg:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-2xl"
+                            id="small-image">
+                            <img src="{{ asset('assets/images/3.jpg') }}" alt="Students Learning"
+                                class="w-full h-full object-cover">
+                        </div>
+                    </div>
 
                     <!-- Animated Shapes -->
                     <div class="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full animate-bounce" id="shape-1">
@@ -547,6 +553,16 @@
                     opacity: [0, 1]
                 }, {
                     duration: 1.5,
+                    easing: 'ease-out'
+                });
+
+                // Small image animation
+                animate('#small-image', {
+                    scale: [0, 1],
+                    rotate: [180, 0]
+                }, {
+                    duration: 1.2,
+                    delay: 0.8,
                     easing: 'ease-out'
                 });
 
