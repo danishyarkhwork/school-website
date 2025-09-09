@@ -53,7 +53,7 @@
                             class="absolute inset-0 transform rotate-45 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20">
                             <!-- Student image section -->
                             <div class="absolute -top-8 -left-8 w-48 h-48 transform -rotate-45 rounded-2xl overflow-hidden">
-                                <img src="{{ asset('assets/images/banners/banner-1.jpeg') }}" alt="Students learning"
+                                <img src="{{ asset('assets/images/1.jpg') }}" alt="Students learning"
                                     class="w-full h-full object-cover">
                             </div>
 
@@ -178,7 +178,7 @@
                 </div>
                 <div class="relative">
                     <div class="w-full h-96 rounded-2xl overflow-hidden relative">
-                        <img src="{{ asset('assets/images/banners/banner-2.jpeg') }}" alt="Varin SkillUp Academy"
+                        <img src="{{ asset('assets/images/3.jpg') }}" alt="Varin SkillUp Academy"
                             class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
@@ -200,49 +200,62 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Vision -->
-                <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl text-white">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
+                <div class="relative p-8 rounded-2xl text-white overflow-hidden">
+                    <img src="{{ asset('assets/images/4.jpg') }}" alt="Focused Learning"
+                        class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+                        <p class="text-white/90 text-lg">
+                            To become Afghanistan's most trusted and innovative learning academy, recognized for
+                            transforming
+                            knowledge into skills and empowering individuals to achieve success in both local and global
+                            arenas.
+                        </p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
-                    <p class="text-white/90 text-lg">
-                        To become Afghanistan's most trusted and innovative learning academy, recognized for transforming
-                        knowledge into skills and empowering individuals to achieve success in both local and global arenas.
-                    </p>
                 </div>
 
                 <!-- Mission -->
-                <div class="bg-gradient-to-br from-accent to-warning p-8 rounded-2xl text-primary">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                <div class="relative p-8 rounded-2xl text-primary overflow-hidden">
+                    <img src="{{ asset('assets/images/5.jpg') }}" alt="Professional Training"
+                        class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/90 to-warning/90"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                        <ul class="text-primary space-y-2">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span>To provide world-class education and professional training accessible to
+                                    everyone.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span>To bridge the gap between academic learning and practical industry needs.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span>To equip Afghan youth and professionals with internationally recognized skills.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span>To foster a culture of innovation, creativity, and lifelong learning.</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
-                    <ul class="text-primary space-y-2">
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            <span>To provide world-class education and professional training accessible to everyone.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            <span>To bridge the gap between academic learning and practical industry needs.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            <span>To equip Afghan youth and professionals with internationally recognized skills.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            <span>To foster a culture of innovation, creativity, and lifelong learning.</span>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -367,35 +380,63 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div
                     class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="{{ asset('assets/images/banners/banner-3.jpeg') }}" alt="Academy Facilities"
+                    <img src="{{ asset('assets/images/1.jpg') }}" alt="Academy Overview"
                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
                     <div
                         class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-lg font-semibold">Modern Facilities</h3>
-                        <p class="text-sm">State-of-the-art learning environment</p>
+                        <h3 class="text-lg font-semibold">Academy Overview</h3>
+                        <p class="text-sm">Your gateway to professional success</p>
                     </div>
                 </div>
 
                 <div
                     class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="{{ asset('assets/images/banners/banner-4.jpeg') }}" alt="Student Activities"
+                    <img src="{{ asset('assets/images/3.jpg') }}" alt="Student Engagement"
                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
                     <div
                         class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-lg font-semibold">Student Activities</h3>
-                        <p class="text-sm">Engaging learning experiences</p>
+                        <h3 class="text-lg font-semibold">Student Engagement</h3>
+                        <p class="text-sm">Active and collaborative learning</p>
                     </div>
                 </div>
 
                 <div
                     class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="{{ asset('assets/images/banners/banner-5.jpeg') }}" alt="Professional Training"
+                    <img src="{{ asset('assets/images/4.jpg') }}" alt="Classroom Learning"
+                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div
+                        class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-lg font-semibold">Classroom Learning</h3>
+                        <p class="text-sm">Interactive educational environment</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="{{ asset('assets/images/5.jpg') }}" alt="Focused Learning"
+                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div
+                        class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-lg font-semibold">Focused Learning</h3>
+                        <p class="text-sm">Individual attention and growth</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 md:col-span-2">
+                    <img src="{{ asset('assets/images/1.jpg') }}" alt="Professional Training"
                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -404,34 +445,6 @@
                         class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <h3 class="text-lg font-semibold">Professional Training</h3>
                         <p class="text-sm">Hands-on practical learning</p>
-                    </div>
-                </div>
-
-                <div
-                    class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="{{ asset('assets/images/banners/banner-6.jpeg') }}" alt="Technology Integration"
-                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div
-                        class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-lg font-semibold">Technology Integration</h3>
-                        <p class="text-sm">Modern tools for learning</p>
-                    </div>
-                </div>
-
-                <div
-                    class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 md:col-span-2">
-                    <img src="{{ asset('assets/images/banners/banner-1.jpeg') }}" alt="Academy Overview"
-                        class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div
-                        class="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-lg font-semibold">Varin SkillUp Academy</h3>
-                        <p class="text-sm">Your gateway to professional success</p>
                     </div>
                 </div>
             </div>
