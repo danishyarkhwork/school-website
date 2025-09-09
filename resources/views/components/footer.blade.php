@@ -57,8 +57,6 @@
                     </li>
                     <li><a href="{{ route('gallery') }}"
                             class="text-gray-300 hover:text-accent transition-colors duration-200">Gallery</a></li>
-                    <li><a href="{{ route('partners') }}"
-                            class="text-gray-300 hover:text-accent transition-colors duration-200">Partners</a></li>
                 </ul>
             </div>
 

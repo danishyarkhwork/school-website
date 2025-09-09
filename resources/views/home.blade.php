@@ -22,15 +22,15 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
                 <div class="text-white">
-                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6">
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6" id="hero-title">
                         Empowering Skills,
                         <span class="text-accent">Shaping Futures</span>
                     </h1>
-                    <p class="text-xl lg:text-2xl text-white/90 mb-8 max-w-lg">
+                    <p class="text-xl lg:text-2xl text-white/90 mb-8 max-w-lg" id="hero-description">
                         Leading educational and professional training institute in Afghanistan, dedicated to building
                         knowledge, enhancing skills, and shaping brighter futures.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex flex-col sm:flex-row gap-4" id="hero-buttons">
                         <a href="{{ route('courses') }}"
                             class="inline-flex items-center justify-center px-8 py-4 bg-accent text-primary font-semibold rounded-lg hover:bg-accent/90 transition-all duration-200 shadow-glow">
                             More Details
@@ -45,69 +45,26 @@
                     </div>
                 </div>
 
-                <!-- Right Content - Image Collage -->
+                <!-- Right Content - Image with Typing Animation -->
                 <div class="relative">
-                    <div class="relative w-full h-96 lg:h-[500px]">
-                        <!-- Main diamond-shaped container -->
-                        <div
-                            class="absolute inset-0 transform rotate-45 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20">
-                            <!-- Student image section -->
-                            <div class="absolute -top-8 -left-8 w-48 h-48 transform -rotate-45 rounded-2xl overflow-hidden">
-                                <img src="{{ asset('assets/images/1.jpg') }}" alt="Students learning"
-                                    class="w-full h-full object-cover">
-                            </div>
-
-                            <!-- Study Apps section -->
-                            <div
-                                class="absolute top-8 right-8 w-32 h-32 transform -rotate-45 bg-accent rounded-xl flex items-center justify-center">
-                                <div class="transform rotate-45 text-center">
-                                    <div class="text-primary font-bold text-sm">Study</div>
-                                    <div class="text-primary font-bold text-sm">Apps</div>
-                                </div>
-                            </div>
-
-                            <!-- Coffee cup section -->
-                            <div
-                                class="absolute bottom-8 right-8 w-24 h-24 transform -rotate-45 bg-primary rounded-xl flex items-center justify-center">
-                                <div class="transform rotate-45">
-                                    <img src="{{ asset('assets/images/logo.jpeg') }}" alt="VA Logo"
-                                        class="w-8 h-8 rounded object-cover">
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Main Image -->
+                    <div class="relative w-full h-80 lg:h-[400px] rounded-3xl overflow-hidden" id="hero-image">
+                        <img src="{{ asset('assets/images/1.jpg') }}" alt="Varin SkillUp Academy Students"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
                     </div>
 
-                    <!-- Social Media Icons -->
-                    <div class="absolute -right-8 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
-                        <a href="#"
-                            class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z" />
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3zm11 1a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10z" />
-                            </svg>
-                        </a>
+
+                    <!-- Animated Shapes -->
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full animate-bounce" id="shape-1">
                     </div>
+                    <div class="absolute top-1/2 -left-4 w-6 h-6 bg-secondary rounded-full animate-pulse" id="shape-2">
+                    </div>
+                    <div class="absolute -bottom-4 -right-8 w-4 h-4 bg-warning rounded-full animate-ping" id="shape-3">
+                    </div>
+                    <div class="absolute bottom-1/3 -left-6 w-3 h-3 bg-success rounded-full animate-bounce" id="shape-4">
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -536,4 +493,150 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Typing Animation
+            const typingText = document.getElementById('typing-text');
+            const texts = [
+                'Language Training',
+                'IT Programs',
+                'Graphic Design',
+                'Professional Certifications',
+                'Digital Marketing',
+                'Web Development'
+            ];
+
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function typeText() {
+                const currentText = texts[textIndex];
+
+                if (isDeleting) {
+                    typingText.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingText.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    typeSpeed = 2000; // Pause at end
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    typeSpeed = 500; // Pause before next text
+                }
+
+                setTimeout(typeText, typeSpeed);
+            }
+
+            // Start typing animation
+            typeText();
+
+            // Motion.js Animations
+            if (typeof animate !== 'undefined') {
+                // Hero image animation
+                animate('#hero-image', {
+                    scale: [0.8, 1],
+                    opacity: [0, 1]
+                }, {
+                    duration: 1.5,
+                    easing: 'ease-out'
+                });
+
+                // Hero title animation
+                animate('#hero-title', {
+                    y: [50, 0],
+                    opacity: [0, 1]
+                }, {
+                    duration: 1,
+                    delay: 0.3,
+                    easing: 'ease-out'
+                });
+
+                // Hero description animation
+                animate('#hero-description', {
+                    y: [30, 0],
+                    opacity: [0, 1]
+                }, {
+                    duration: 1,
+                    delay: 0.6,
+                    easing: 'ease-out'
+                });
+
+                // Hero buttons animation
+                animate('#hero-buttons', {
+                    y: [20, 0],
+                    opacity: [0, 1]
+                }, {
+                    duration: 1,
+                    delay: 0.9,
+                    easing: 'ease-out'
+                });
+
+                // Logo animation
+                animate('#logo-container', {
+                    scale: [0, 1],
+                    rotate: [180, 0]
+                }, {
+                    duration: 1.2,
+                    delay: 0.5,
+                    easing: 'ease-out'
+                });
+
+                // Typing section animation
+                animate('#typing-section', {
+                    y: [30, 0],
+                    opacity: [0, 1]
+                }, {
+                    duration: 1,
+                    delay: 1,
+                    easing: 'ease-out'
+                });
+
+                // Animated shapes
+                animate('#shape-1', {
+                    y: [0, -20, 0],
+                    rotate: [0, 360]
+                }, {
+                    duration: 3,
+                    repeat: Infinity,
+                    easing: 'ease-in-out'
+                });
+
+                animate('#shape-2', {
+                    x: [0, 10, 0],
+                    scale: [1, 1.2, 1]
+                }, {
+                    duration: 2,
+                    repeat: Infinity,
+                    easing: 'ease-in-out'
+                });
+
+                animate('#shape-3', {
+                    scale: [1, 1.5, 1],
+                    opacity: [0.7, 1, 0.7]
+                }, {
+                    duration: 2.5,
+                    repeat: Infinity,
+                    easing: 'ease-in-out'
+                });
+
+                animate('#shape-4', {
+                    y: [0, -15, 0],
+                    x: [0, 5, 0]
+                }, {
+                    duration: 2.8,
+                    repeat: Infinity,
+                    easing: 'ease-in-out'
+                });
+            }
+        });
+    </script>
 @endsection
