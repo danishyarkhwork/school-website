@@ -4,10 +4,8 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3">
-                    <div
-                        class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">VA</span>
-                    </div>
+                    <img src="{{ asset('assets/images/logo.jpeg') }}" alt="Varin SkillUp Academy Logo"
+                        class="w-10 h-10 rounded-lg object-cover">
                     <span class="text-xl font-bold text-primary">Varin SkillUp Academy</span>
                 </a>
             </div>

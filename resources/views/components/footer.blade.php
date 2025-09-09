@@ -4,10 +4,8 @@
             <!-- Logo and Description -->
             <div class="lg:col-span-2">
                 <div class="flex items-center space-x-3 mb-4">
-                    <div
-                        class="w-12 h-12 bg-gradient-to-br from-accent to-warning rounded-lg flex items-center justify-center">
-                        <span class="text-primary font-bold text-xl">VA</span>
-                    </div>
+                    <img src="{{ asset('assets/images/logo.jpeg') }}" alt="Varin SkillUp Academy Logo"
+                        class="w-12 h-12 rounded-lg object-cover">
                     <span class="text-2xl font-bold">Varin SkillUp Academy</span>
                 </div>
                 <p class="text-gray-300 mb-6 max-w-md">
