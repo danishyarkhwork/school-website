@@ -32,10 +32,6 @@
                     class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('gallery') ? 'text-primary' : '' }}">
                     Gallery
                 </a>
-                <a href="{{ route('partners') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('partners') ? 'text-primary' : '' }}">
-                    Partners
-                </a>
                 <a href="{{ route('contact') }}"
                     class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('contact') ? 'text-primary' : '' }}">
                     Contact
@@ -84,10 +80,6 @@
                 <a href="{{ route('gallery') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('gallery') ? 'text-primary' : '' }}">
                     Gallery
-                </a>
-                <a href="{{ route('partners') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('partners') ? 'text-primary' : '' }}">
-                    Partners
                 </a>
                 <a href="{{ route('contact') }}"
                     class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('contact') ? 'text-primary' : '' }}">

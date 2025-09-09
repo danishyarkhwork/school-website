@@ -24,10 +24,6 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
-Route::get('/partners', function () {
-    return view('partners');
-})->name('partners');
-
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');

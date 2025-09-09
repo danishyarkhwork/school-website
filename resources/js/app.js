@@ -1,7 +1,13 @@
-import './bootstrap';
+import "./bootstrap";
 
-import Alpine from 'alpinejs';
+import Alpine from "alpinejs";
+import { animate, scroll, timeline, stagger, inView } from "motion";
 
 window.Alpine = Alpine;
+window.animate = animate;
+window.scroll = scroll;
+window.timeline = timeline;
+window.stagger = stagger;
+window.inView = inView;
 
 Alpine.start();
