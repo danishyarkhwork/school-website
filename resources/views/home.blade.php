@@ -45,76 +45,88 @@
                     </div>
                 </div>
 
-                <!-- Right Content - Image Collage -->
+                <!-- Right Content - Creative Image Design -->
                 <div class="relative">
-                    <!-- Large Main Image -->
-                    <div class="relative w-full h-80 lg:h-[400px] rounded-3xl overflow-hidden mb-6" id="hero-image">
-                        <img src="{{ asset('assets/images/1.jpg') }}" alt="Varin SkillUp Academy Students"
-                            class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                    <!-- Main Image Container with Creative Layout -->
+                    <div class="relative w-full h-96 lg:h-[450px]">
+                        <!-- Large Main Image - Tilted -->
+                        <div class="absolute top-0 left-0 w-3/4 h-4/5 rounded-2xl overflow-hidden transform rotate-3 shadow-2xl"
+                            id="hero-image">
+                            <img src="{{ asset('assets/images/1.jpg') }}" alt="Varin SkillUp Academy Students"
+                                class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary/40 to-transparent"></div>
 
-                        <!-- Small Image Overlay -->
-                        <div class="absolute -bottom-6 -right-6 w-32 h-32 lg:w-40 lg:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-2xl"
+                            <!-- Floating Badge -->
+                            <div
+                                class="absolute top-4 right-4 bg-accent text-primary px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                Excellence in Education
+                            </div>
+                        </div>
+
+                        <!-- Small Image - Floating Card Style -->
+                        <div class="absolute bottom-0 right-0 w-2/3 h-3/5 rounded-2xl overflow-hidden transform -rotate-6 shadow-2xl border-4 border-white"
                             id="small-image">
                             <img src="{{ asset('assets/images/3.jpg') }}" alt="Students Learning"
                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+
+                            <!-- Content Overlay -->
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                                    <span class="text-sm font-medium">Live Learning</span>
+                                </div>
+                                <h4 class="text-lg font-bold">Interactive Classes</h4>
+                            </div>
+                        </div>
+
+                        <!-- Decorative Elements -->
+                        <div class="absolute -top-2 -right-2 w-6 h-6 bg-accent rounded-full animate-bounce" id="shape-1">
+                        </div>
+                        <div class="absolute top-1/3 -left-3 w-4 h-4 bg-warning rounded-full animate-pulse" id="shape-2">
+                        </div>
+                        <div class="absolute bottom-1/4 -right-4 w-3 h-3 bg-success rounded-full animate-ping"
+                            id="shape-3"></div>
+                        <div class="absolute top-2/3 -left-6 w-5 h-5 bg-info rounded-full animate-bounce" id="shape-4">
+                        </div>
+
+                        <!-- Connection Line -->
+                        <div
+                            class="absolute top-1/2 left-1/2 w-16 h-1 bg-gradient-to-r from-accent to-warning transform -translate-x-1/2 -translate-y-1/2 rotate-45 opacity-60">
                         </div>
                     </div>
 
-                    <!-- Animated Shapes -->
-                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full animate-bounce" id="shape-1">
-                    </div>
-                    <div class="absolute top-1/2 -left-4 w-6 h-6 bg-secondary rounded-full animate-pulse" id="shape-2">
-                    </div>
-                    <div class="absolute -bottom-4 -right-8 w-4 h-4 bg-warning rounded-full animate-ping" id="shape-3">
-                    </div>
-                    <div class="absolute bottom-1/3 -left-6 w-3 h-3 bg-success rounded-full animate-bounce" id="shape-4">
+                    <!-- Floating Stats Cards -->
+                    <div class="absolute -bottom-8 -left-8 bg-white rounded-xl p-4 shadow-xl transform -rotate-2"
+                        id="stats-card-1">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                                <span class="text-primary font-bold text-sm">500+</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Students</p>
+                                <p class="text-sm font-semibold text-primary">Graduated</p>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="absolute -top-8 -right-8 bg-white rounded-xl p-4 shadow-xl transform rotate-2"
+                        id="stats-card-2">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-success rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">95%</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Success</p>
+                                <p class="text-sm font-semibold text-primary">Rate</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Information Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-primary mb-2">Location</h3>
-                    <p class="text-gray-600">2nd Floor, Aryoob Market<br>Ahmadshah Baba Mina, Kabul, Afghanistan</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-primary mb-2">Phone</h3>
-                    <p class="text-gray-600">0774801209</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-primary mb-2">Website</h3>
-                    <p class="text-gray-600">www.varinacademy.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- About Us Section -->
     <section class="py-20 bg-light">
@@ -559,10 +571,31 @@
                 // Small image animation
                 animate('#small-image', {
                     scale: [0, 1],
-                    rotate: [180, 0]
+                    rotate: [-180, -6]
                 }, {
                     duration: 1.2,
                     delay: 0.8,
+                    easing: 'ease-out'
+                });
+
+                // Stats cards animation
+                animate('#stats-card-1', {
+                    y: [50, 0],
+                    opacity: [0, 1],
+                    rotate: [-10, -2]
+                }, {
+                    duration: 1,
+                    delay: 1.2,
+                    easing: 'ease-out'
+                });
+
+                animate('#stats-card-2', {
+                    y: [-50, 0],
+                    opacity: [0, 1],
+                    rotate: [10, 2]
+                }, {
+                    duration: 1,
+                    delay: 1.4,
                     easing: 'ease-out'
                 });
 

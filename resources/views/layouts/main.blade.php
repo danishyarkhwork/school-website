@@ -9,6 +9,17 @@
     <title>@yield('title', 'Varin Academy - Excellence in Education')</title>
     <meta name="description" content="@yield('description', 'Varin Academy provides quality education and innovative learning programs to shape the leaders of tomorrow.')">
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon-32x32.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="{{ asset('assets/images/android-chrome-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512"
+        href="{{ asset('assets/images/android-chrome-512x512.png') }}">
+    <link rel="manifest" href="{{ asset('assets/images/site.webmanifest') }}">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
