@@ -146,7 +146,7 @@
                         <div class="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
                             <div class="text-center text-white">
-                                <img src="{{ asset('assets/images/logo.jpeg') }}" alt="VA Logo"
+                                <img src="{{ asset('assets/images/varin-academy-logo.svg') }}" alt="VA Logo"
                                     class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
                                 <h3 class="text-2xl font-bold mb-2">Varin SkillUp Academy</h3>
                                 <p class="text-white/90">Your Partner in Education, Skills, and Success</p>
