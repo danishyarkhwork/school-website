@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
-@section('title', 'Contact Us - Varin Academy')
+@section('title', 'Contact Us - Varin SkillUp Academy')
 @section('description',
-    'Get in touch with Varin Academy. We are here to answer your questions and help you with your
+    'Get in touch with Varin SkillUp Academy. We are here to answer your questions and help you with your
     educational journey.')
 
 @section('content')
@@ -97,7 +97,8 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-primary mb-2">Visit Us</h3>
-                                <p class="text-gray-600">123 Education Street<br>Learning City, LC 12345<br>United States
+                                <p class="text-gray-600">2nd Floor, Aryoob Market<br>Ahmadshah Baba Mina<br>Kabul,
+                                    Afghanistan
                                 </p>
                             </div>
                         </div>
@@ -111,7 +112,7 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-primary mb-2">Call Us</h3>
-                                <p class="text-gray-600">+1 (555) 123-4567<br>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM -
+                                <p class="text-gray-600">0774801209<br>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM -
                                     4:00 PM</p>
                             </div>
                         </div>
@@ -126,7 +127,7 @@
                             <div>
                                 <h3 class="text-lg font-semibold text-primary mb-2">Email Us</h3>
                                 <p class="text-gray-600">
-                                    info@varinacademy.com<br>admissions@varinacademy.com<br>support@varinacademy.com</p>
+                                    www.varinacademy.com<br>info@varinacademy.com<br>admissions@varinacademy.com</p>
                             </div>
                         </div>
                     </div>

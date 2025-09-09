@@ -8,7 +8,7 @@
                         class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                         <span class="text-white font-bold text-lg">VA</span>
                     </div>
-                    <span class="text-xl font-bold text-primary">Varin Academy</span>
+                    <span class="text-xl font-bold text-primary">Varin SkillUp Academy</span>
                 </a>
             </div>
 
