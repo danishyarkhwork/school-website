@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 // Public routes
 Route::get('/', function () {
@@ -44,6 +45,7 @@ Route::middleware('auth')->group(function () {
     // Admin posts CRUD
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('posts', AdminPostController::class)->except(['show']);
+        Route::resource('users', AdminUserController::class)->except(['show']);
     });
 });
 
