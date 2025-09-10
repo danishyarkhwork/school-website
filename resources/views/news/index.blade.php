@@ -20,17 +20,23 @@
                     @else
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             @foreach ($posts as $post)
-                                <article class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+                                <article
+                                    class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
                                     @if ($post->image_path)
-                                        <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}"
-                                            class="h-48 w-full object-cover">
+                                        <div class="relative overflow-hidden">
+                                            <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}"
+                                                class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                                            <div
+                                                class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                                            </div>
+                                        </div>
                                     @endif
                                     <div class="p-6 flex-1 flex flex-col">
                                         <h2 class="text-xl font-semibold text-primary">
                                             <a href="{{ route('news.show', $post->slug) }}"
                                                 class="hover:underline">{{ $post->title }}</a>
                                         </h2>
-                                        <p class="mt-2 text-gray-600 line-clamp-3">
+                                        <p class="mt-2 text-gray-600 line-clamp-3 group-hover:text-gray-700">
                                             {{ $post->excerpt ?? Str::limit(strip_tags($post->body), 120) }}</p>
                                         <div class="mt-auto pt-4 text-sm text-gray-500">
                                             {{ optional($post->published_at ?? $post->created_at)->format('M d, Y') }}

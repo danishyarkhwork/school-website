@@ -44,6 +44,13 @@
     <!-- Footer -->
     @include('components.footer')
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/93774801209" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:shadow-2xl transition transform hover:scale-105 animate-bounce">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-8 h-8"
+            loading="lazy">
+    </a>
+
     @stack('scripts')
 </body>
 

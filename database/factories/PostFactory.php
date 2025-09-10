@@ -37,7 +37,7 @@ class PostFactory extends Factory
             'slug' => Str::slug($title) . '-' . $this->faker->unique()->numberBetween(1000, 999999),
             'excerpt' => $this->faker->optional()->text(160),
             'body' => $body,
-            'image_path' => $this->faker->optional(0.7)->randomElement($sampleImages),
+            'image_path' => $this->faker->randomElement($sampleImages),
             'published_at' => $this->faker->optional(0.8)->dateTimeBetween('-60 days', 'now'),
         ];
     }
