@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('title', 'Gallery - Varin SkillUp Academy')
-@section('description', 'Explore Varin SkillUp Academy photos showcasing our learning environment, programs, and
+@section('description',
+    'Explore Varin SkillUp Academy photos showcasing our learning environment, programs, and
     achievements.')
 
 @section('content')
@@ -48,8 +49,9 @@
             'banners/banner-6.jpeg' => 'Community',
         ] as $file => $caption)
                     <figure class="mb-6 break-inside-avoid rounded-2xl overflow-hidden shadow-lg group">
-                        <img src="{{ asset('assets/images/' . $file) }}" alt="{{ $caption }}"
-                            class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300">
+                        <img src="{{ asset('assets/images/' . $file) }}" alt="{{ $caption }}" data-gallery="image"
+                            data-index="{{ $loop->index }}"
+                            class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300 cursor-zoom-in">
                         <figcaption class="p-4 bg-white">
                             <p class="text-sm text-gray-700">{{ $caption }}</p>
                         </figcaption>
@@ -58,6 +60,48 @@
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden">
+        <div id="lightbox-backdrop" class="absolute inset-0 bg-black/80"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="relative max-w-6xl w-full">
+                <!-- Close button -->
+                <button id="lightbox-close" aria-label="Close"
+                    class="absolute -top-10 right-0 text-white/90 hover:text-white text-3xl">&times;</button>
+
+                <!-- Image container -->
+                <div class="relative w-full">
+                    <img id="lightbox-img" src="" alt=""
+                        class="max-h-[80vh] w-auto mx-auto rounded-xl shadow-2xl" />
+
+                    <!-- Prev -->
+                    <button id="lightbox-prev" aria-label="Previous"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+
+                    <!-- Next -->
+                    <button id="lightbox-next" aria-label="Next"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+
+                <p id="lightbox-caption" class="mt-4 text-center text-white/90 text-sm"></p>
+            </div>
+        </div>
+    </div>
+
+    @push('scripts')
+        @vite('resources/js/gallery.js')
+    @endpush
 
     <!-- CTA -->
     <section class="py-16 bg-light">
