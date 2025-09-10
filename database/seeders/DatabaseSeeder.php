@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Post;
+use Illuminate\Support\Facades\Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,9 +17,13 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::firstOrCreate(
+        User::updateOrCreate(
             ['email' => 'test@example.com'],
-            ['name' => 'Test User']
+            [
+                'name' => 'Test User',
+                'password' => Hash::make('password'),
+                'email_verified_at' => now(),
+            ]
         );
 
         // Seed dummy posts

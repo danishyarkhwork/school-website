@@ -92,6 +92,8 @@
         <div class="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p class="text-gray-300 text-sm">
                 © {{ date('Y') }} Varin SkillUp Academy. All rights reserved.
+                <span class="mx-2 text-white/20">|</span>
+                <a href="{{ route('login') }}" class="underline text-gray-200 hover:text-accent">Admin Login</a>
             </p>
             <div class="flex space-x-6 mt-4 md:mt-0">
                 <a href="#" class="text-gray-300 hover:text-accent text-sm transition-colors duration-200">Privacy
