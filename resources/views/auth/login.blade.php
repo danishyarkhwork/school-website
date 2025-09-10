@@ -3,6 +3,8 @@
         <div class="w-full max-w-md">
             <div class="bg-white shadow-lg rounded-2xl p-8">
                 <div class="text-center">
+                    <img src="{{ asset('assets/images/varin-academy-logo.svg') }}" alt="Varin SkillUp Academy"
+                        class="mx-auto h-12 w-12 mb-3">
                     <h1 class="text-2xl font-bold text-primary">Welcome back</h1>
                     <p class="mt-1 text-gray-600 text-sm">Sign in to manage your academy</p>
                 </div>

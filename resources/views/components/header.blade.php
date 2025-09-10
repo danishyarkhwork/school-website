@@ -109,6 +109,12 @@
                     class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('contact') ? 'text-primary' : '' }}">
                     Contact
                 </a>
+                @guest
+                    <a href="{{ route('login') }}"
+                        class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('login') ? 'text-primary' : '' }}">
+                        Login
+                    </a>
+                @endguest
                 <div class="px-3 py-2">
                     <a href="{{ route('contact') }}"
                         class="block w-full bg-accent text-primary px-4 py-2 rounded-lg font-semibold text-center hover:bg-accent/90 transition-colors duration-200">

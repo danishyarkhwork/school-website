@@ -95,13 +95,14 @@
                 <span class="mx-2 text-white/20">|</span>
                 <a href="{{ route('login') }}" class="underline text-gray-200 hover:text-accent">Admin Login</a>
             </p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
+            <div class="flex space-x-6 mt-4 md:mt-0 items-center">
                 <a href="#" class="text-gray-300 hover:text-accent text-sm transition-colors duration-200">Privacy
                     Policy</a>
                 <a href="#" class="text-gray-300 hover:text-accent text-sm transition-colors duration-200">Terms
                     of Service</a>
                 <a href="#" class="text-gray-300 hover:text-accent text-sm transition-colors duration-200">Cookie
                     Policy</a>
+                <a href="{{ route('login') }}" class="text-gray-200 hover:text-accent text-sm">Login</a>
             </div>
         </div>
     </div>
