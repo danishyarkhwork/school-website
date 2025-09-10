@@ -13,19 +13,7 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <a href="{{ route('admin.posts.index') }}"
-                        class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">Manage Posts</a>
-                    <div class="relative">
-                        <button id="user-menu-btn"
-                            class="px-3 py-2 border rounded-lg text-gray-700 hover:border-primary">{{ auth()->user()->name ?? 'User' }}</button>
-                        <div id="user-menu" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-lg shadow border">
-                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm hover:bg-light">Profile</a>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit"
-                                    class="w-full text-left px-4 py-2 text-sm hover:bg-light">Logout</button>
-                            </form>
-                        </div>
-                    </div>
+                        class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">Manage Posts</a>
                 </div>
             </div>
         </div>
@@ -35,7 +23,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-accent">
+                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-accent transition hover:shadow-lg">
                     <div class="flex items-center justify-between">
                         <div>
                             <div class="text-sm text-gray-500">Total Posts</div>
@@ -50,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-[#22c55e]">
+                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-accent transition hover:shadow-lg">
                     <div class="flex items-center justify-between">
                         <div>
                             <div class="text-sm text-gray-500">Published This Week</div>
@@ -58,7 +46,7 @@
                                 {{ \App\Models\Post::whereBetween('published_at', [now()->startOfWeek(), now()->endOfWeek()])->count() }}
                             </div>
                         </div>
-                        <div class="w-10 h-10 rounded-lg bg-light flex items-center justify-center text-[#22c55e]">
+                        <div class="w-10 h-10 rounded-lg bg-light flex items-center justify-center text-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -66,14 +54,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-[#f59e0b]">
+                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-accent transition hover:shadow-lg">
                     <div class="flex items-center justify-between">
                         <div>
                             <div class="text-sm text-gray-500">Drafts</div>
                             <div class="mt-2 text-3xl font-bold text-primary">
                                 {{ \App\Models\Post::whereNull('published_at')->count() }}</div>
                         </div>
-                        <div class="w-10 h-10 rounded-lg bg-light flex items-center justify-center text-[#f59e0b]">
+                        <div class="w-10 h-10 rounded-lg bg-light flex items-center justify-center text-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
@@ -81,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-[#3b82f6]">
+                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-accent transition hover:shadow-lg">
                     <div class="flex items-center justify-between">
                         <div>
                             <div class="text-sm text-gray-500">Last Updated</div>
@@ -89,7 +77,7 @@
                                 {{ optional(\App\Models\Post::orderByDesc('updated_at')->first())->updated_at?->diffForHumans() ?? '—' }}
                             </div>
                         </div>
-                        <div class="w-10 h-10 rounded-lg bg-light flex items-center justify-center text-[#3b82f6]">
+                        <div class="w-10 h-10 rounded-lg bg-light flex items-center justify-center text-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -105,24 +93,24 @@
                 <h3 class="text-lg font-semibold text-gray-800">Quick Actions</h3>
                 <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <a href="{{ route('admin.posts.create') }}"
-                        class="block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
-                        <div class="font-semibold text-primary">Create New Post</div>
-                        <div class="text-sm text-gray-500">Publish an update or blog article</div>
+                        class="group block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
+                        <div class="font-semibold text-primary group-hover:underline">Create New Post</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-700">Publish an update or blog article</div>
                     </a>
                     <a href="{{ route('admin.posts.index') }}"
-                        class="block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
-                        <div class="font-semibold text-primary">Manage Posts</div>
-                        <div class="text-sm text-gray-500">Edit or delete existing posts</div>
+                        class="group block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
+                        <div class="font-semibold text-primary group-hover:underline">Manage Posts</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-700">Edit or delete existing posts</div>
                     </a>
                     <a href="{{ route('news.index') }}"
-                        class="block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
-                        <div class="font-semibold text-primary">View Site News</div>
-                        <div class="text-sm text-gray-500">See the public news page</div>
+                        class="group block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
+                        <div class="font-semibold text-primary group-hover:underline">View Site News</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-700">See the public news page</div>
                     </a>
                     <a href="{{ route('admin.users.index') }}"
-                        class="block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
-                        <div class="font-semibold text-primary">Manage Users</div>
-                        <div class="text-sm text-gray-500">Add or update user accounts</div>
+                        class="group block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
+                        <div class="font-semibold text-primary group-hover:underline">Manage Users</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-700">Add or update user accounts</div>
                     </a>
                 </div>
             </div>
@@ -140,13 +128,13 @@
                             </div>
                             <div class="flex items-center gap-3">
                                 <a href="{{ route('admin.posts.edit', $post) }}"
-                                    class="px-3 py-1.5 text-sm rounded-lg border text-primary hover:border-primary">Edit</a>
+                                    class="px-3 py-1.5 text-sm rounded-lg border text-primary hover:border-primary hover:shadow-glow">Edit</a>
                                 <form action="{{ route('admin.posts.destroy', $post) }}" method="POST"
                                     onsubmit="return confirm('Delete this post?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"
-                                        class="px-3 py-1.5 text-sm rounded-lg border text-red-600 hover:border-red-600">Delete</button>
+                                        class="px-3 py-1.5 text-sm rounded-lg border text-red-600 hover:border-red-600 hover:shadow">Delete</button>
                                 </form>
                             </div>
                         </div>
