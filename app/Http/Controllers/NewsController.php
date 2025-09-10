@@ -11,9 +11,14 @@ class NewsController extends Controller
     {
         $posts = Post::orderByDesc('published_at')
             ->orderByDesc('created_at')
-            ->paginate(9);
+            ->paginate(10);
 
-        return view('news.index', compact('posts'));
+        $recentPosts = Post::orderByDesc('published_at')
+            ->orderByDesc('created_at')
+            ->limit(5)
+            ->get();
+
+        return view('news.index', compact('posts', 'recentPosts'));
     }
 
     public function show(string $slug)

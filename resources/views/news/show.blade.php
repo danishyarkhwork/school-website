@@ -16,7 +16,7 @@
     <section class="py-8">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             @if ($post->image_path)
-                <img src="{{ asset('storage/' . $post->image_path) }}" alt="{{ $post->title }}"
+                <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}"
                     class="w-full h-auto rounded-2xl shadow mb-8">
             @endif
             <div class="prose max-w-none">

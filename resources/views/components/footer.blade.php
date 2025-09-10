@@ -52,7 +52,7 @@
                             class="text-gray-300 hover:text-accent transition-colors duration-200">About Us</a></li>
                     <li><a href="{{ route('courses') }}"
                             class="text-gray-300 hover:text-accent transition-colors duration-200">Courses</a></li>
-                    <li><a href="{{ route('news') }}"
+                    <li><a href="{{ route('news.index') }}"
                             class="text-gray-300 hover:text-accent transition-colors duration-200">News & Events</a>
                     </li>
                     <li><a href="{{ route('gallery') }}"

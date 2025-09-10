@@ -24,8 +24,8 @@
                     class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('courses') ? 'text-primary' : '' }}">
                     Courses
                 </a>
-                <a href="{{ route('news') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('news') ? 'text-primary' : '' }}">
+                <a href="{{ route('news.index') }}"
+                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('news.*') ? 'text-primary' : '' }}">
                     News
                 </a>
                 <a href="{{ route('gallery') }}"
@@ -73,8 +73,8 @@
                     class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('courses') ? 'text-primary' : '' }}">
                     Courses
                 </a>
-                <a href="{{ route('news') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('news') ? 'text-primary' : '' }}">
+                <a href="{{ route('news.index') }}"
+                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('news.*') ? 'text-primary' : '' }}">
                     News
                 </a>
                 <a href="{{ route('gallery') }}"

@@ -49,8 +49,7 @@
                     <label class="block text-sm font-medium text-gray-700">Image (optional)</label>
                     @if ($post->image_path)
                         <div class="mb-2">
-                            <img src="{{ asset('storage/' . $post->image_path) }}" alt="{{ $post->title }}"
-                                class="h-24 rounded">
+                            <img src="{{ asset($post->image_path) }}" alt="{{ $post->title }}" class="h-24 rounded">
                         </div>
                     @endif
                     <input type="file" name="image" accept="image/*" class="mt-1">

@@ -41,7 +41,14 @@ class PostController extends Controller
 
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('posts', 'public');
+            $file = $request->file('image');
+            $filename = uniqid('post_') . '.' . $file->getClientOriginalExtension();
+            $targetDir = public_path('assets/images/posts');
+            if (!is_dir($targetDir)) {
+                @mkdir($targetDir, 0775, true);
+            }
+            $file->move($targetDir, $filename);
+            $imagePath = 'assets/images/posts/' . $filename;
         }
 
         Post::create([
@@ -81,7 +88,14 @@ class PostController extends Controller
 
         $imagePath = $post->image_path;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('posts', 'public');
+            $file = $request->file('image');
+            $filename = uniqid('post_') . '.' . $file->getClientOriginalExtension();
+            $targetDir = public_path('assets/images/posts');
+            if (!is_dir($targetDir)) {
+                @mkdir($targetDir, 0775, true);
+            }
+            $file->move($targetDir, $filename);
+            $imagePath = 'assets/images/posts/' . $filename;
         }
 
         $post->update([
