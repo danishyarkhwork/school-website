@@ -1,17 +1,38 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="flex items-center justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Admin Dashboard') }}
-            </h2>
-            <a href="{{ route('admin.posts.index') }}"
-                class="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">Manage
-                Posts</a>
+@extends('layouts.main')
+
+@section('title', 'Dashboard - Admin')
+@section('description', 'Admin dashboard overview and quick actions')
+
+@section('content')
+    <section class="relative py-8 bg-gradient-to-b from-light to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-primary">Admin Dashboard</h1>
+                    <p class="mt-1 text-gray-600 text-sm">Overview and quick management actions</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="{{ route('admin.posts.index') }}"
+                        class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">Manage Posts</a>
+                    <div class="relative">
+                        <button id="user-menu-btn"
+                            class="px-3 py-2 border rounded-lg text-gray-700 hover:border-primary">{{ auth()->user()->name ?? 'User' }}</button>
+                        <div id="user-menu" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-lg shadow border">
+                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm hover:bg-light">Profile</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit"
+                                    class="w-full text-left px-4 py-2 text-sm hover:bg-light">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </x-slot>
+    </section>
 
     <div class="py-10">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white rounded-xl shadow p-6">
@@ -56,6 +77,11 @@
                         <div class="font-semibold text-primary">View Site News</div>
                         <div class="text-sm text-gray-500">See the public news page</div>
                     </a>
+                    <a href="{{ route('admin.users.index') }}"
+                        class="block p-4 rounded-lg border hover:border-primary hover:shadow transition">
+                        <div class="font-semibold text-primary">Manage Users</div>
+                        <div class="text-sm text-gray-500">Add or update user accounts</div>
+                    </a>
                 </div>
             </div>
 
@@ -86,4 +112,18 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+
+    <script>
+        (function() {
+            const btn = document.getElementById('user-menu-btn');
+            const menu = document.getElementById('user-menu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+            document.addEventListener('click', (e) => {
+                if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                    menu.classList.add('hidden');
+                }
+            });
+        })();
+    </script>
+@endsection

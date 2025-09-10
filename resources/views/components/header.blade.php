@@ -38,12 +38,36 @@
                 </a>
             </nav>
 
-            <!-- CTA Button -->
+            <!-- Right side actions -->
             <div class="hidden md:flex items-center space-x-4">
                 <a href="{{ route('contact') }}"
                     class="bg-accent text-primary px-6 py-2 rounded-lg font-semibold hover:bg-accent/90 transition-colors duration-200 shadow-glow">
                     Ask a Question
                 </a>
+                @auth
+                    <div class="relative">
+                        <button id="user-menu-toggle"
+                            class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center focus:outline-none">
+                            <span class="font-semibold">{{ strtoupper(substr(auth()->user()->name, 0, 1)) }}</span>
+                        </button>
+                        <div id="user-menu-dropdown"
+                            class="hidden absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg overflow-hidden">
+                            <div class="px-4 py-3 text-sm text-gray-700 border-b">Signed in as<br><span
+                                    class="font-medium">{{ auth()->user()->name }}</span></div>
+                            <a href="{{ route('dashboard') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-light">Dashboard</a>
+                            <a href="{{ route('profile.edit') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-light">Profile</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit"
+                                    class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-light">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                @else
+                    <a href="{{ route('login') }}" class="text-primary font-semibold hover:underline">Login</a>
+                @endauth
             </div>
 
             <!-- Mobile menu button -->
@@ -100,9 +124,24 @@
     document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
+        const userToggle = document.getElementById('user-menu-toggle');
+        const userDropdown = document.getElementById('user-menu-dropdown');
+        if (userToggle && userDropdown) {
+            userToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                userDropdown.classList.toggle('hidden');
+            });
+            document.addEventListener('click', function(e) {
+                if (!userDropdown.contains(e.target) && !userToggle.contains(e.target)) {
+                    userDropdown.classList.add('hidden');
+                }
+            });
+        }
     });
 </script>
