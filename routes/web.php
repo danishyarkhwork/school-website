@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\CertificateController as AdminCertificateController;
 use App\Http\Controllers\CertificateVerificationController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\SettingsController;
 
 // Public routes
 Route::get('/', function () {
@@ -33,6 +35,7 @@ Route::get('/gallery', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 // Certificate verification routes (public)
 Route::get('/certificate/verify', [CertificateVerificationController::class, 'index'])->name('certificate.verify');
@@ -63,6 +66,10 @@ Route::middleware('auth')->group(function () {
         Route::resource('certificates', AdminCertificateController::class);
         Route::get('certificates/{certificate}/generate-qr', [AdminCertificateController::class, 'generateQr'])
             ->name('certificates.generate-qr');
+
+        // Settings
+        Route::get('settings', [SettingsController::class, 'edit'])->name('settings.edit');
+        Route::put('settings', [SettingsController::class, 'update'])->name('settings.update');
     });
 });
 
