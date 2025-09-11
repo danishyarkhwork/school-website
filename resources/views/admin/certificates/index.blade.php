@@ -4,24 +4,24 @@
 @section('description', 'Admin - manage graduation certificates')
 
 @section('content')
-<section class="py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-xl shadow overflow-hidden">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h1 class="text-2xl font-bold text-primary">Certificate Management</h1>
-                    <a href="{{ route('admin.certificates.create') }}" 
-                       class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">
-                        Add New Certificate
-                    </a>
-                </div>
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow overflow-hidden">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h1 class="text-2xl font-bold text-primary">Certificate Management</h1>
+                        <a href="{{ route('admin.certificates.create') }}"
+                            class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">
+                            Add New Certificate
+                        </a>
+                    </div>
 
-                @if (session('success'))
-                    <div class="mb-4 p-3 bg-green-100 text-green-800 rounded">{{ session('success') }}</div>
-                @endif
+                    @if (session('success'))
+                        <div class="mb-4 p-3 bg-green-100 text-green-800 rounded">{{ session('success') }}</div>
+                    @endif
 
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th
@@ -101,11 +101,11 @@
                         </table>
                     </div>
 
-                <div class="mt-4">
-                    {{ $certificates->links() }}
+                    <div class="mt-4">
+                        {{ $certificates->links() }}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection

@@ -1,18 +1,19 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Add New Certificate') }}
-        </h2>
-    </x-slot>
+@extends('layouts.main')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <form action="{{ route('admin.certificates.store') }}" method="POST">
-                        @csrf
+@section('title', 'Add New Certificate - Admin')
+@section('description', 'Admin - create a new graduation certificate')
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+@section('content')
+<section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-primary mb-6">Add New Certificate</h1>
+                
+                <form action="{{ route('admin.certificates.store') }}" method="POST">
+                    @csrf
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Student Name -->
                             <div>
                                 <label for="student_name" class="block text-sm font-medium text-gray-700">
@@ -123,19 +124,19 @@
                             </div>
                         </div>
 
-                        <div class="mt-6 flex justify-end space-x-3">
-                            <a href="{{ route('admin.certificates.index') }}"
-                                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-                                Cancel
-                            </a>
-                            <button type="submit"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Create Certificate
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="mt-6 flex justify-end space-x-3">
+                        <a href="{{ route('admin.certificates.index') }}" 
+                           class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">
+                            Cancel
+                        </a>
+                        <button type="submit" 
+                                class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">
+                            Create Certificate
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</x-app-layout>
+</section>
+@endsection

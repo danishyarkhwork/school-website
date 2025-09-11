@@ -1,29 +1,28 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Certificate Details') }}
-        </h2>
-    </x-slot>
+@extends('layouts.main')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-medium">Certificate Information</h3>
-                        <div class="flex space-x-2">
-                            <a href="{{ route('admin.certificates.edit', $certificate) }}"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Edit Certificate
-                            </a>
-                            <a href="{{ route('admin.certificates.index') }}"
-                                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                                Back to List
-                            </a>
-                        </div>
+@section('title', 'Certificate Details - Admin')
+@section('description', 'Admin - view certificate details and information')
+
+@section('content')
+<section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-2xl font-bold text-primary">Certificate Details</h1>
+                    <div class="flex space-x-2">
+                        <a href="{{ route('admin.certificates.edit', $certificate) }}" 
+                           class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">
+                            Edit Certificate
+                        </a>
+                        <a href="{{ route('admin.certificates.index') }}" 
+                           class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
+                            Back to List
+                        </a>
                     </div>
+                </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Certificate ID -->
                         <div class="bg-gray-50 p-4 rounded-lg">
                             <label class="block text-sm font-medium text-gray-700 mb-1">
@@ -125,8 +124,8 @@
                         </div>
                     </div>
 
-                    <!-- QR Code Information -->
-                    <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                <!-- QR Code Information -->
+                <div class="mt-6 bg-gray-50 p-4 rounded-lg">
                         <label class="block text-sm font-medium text-gray-700 mb-2">
                             Verification URL
                         </label>
@@ -147,35 +146,37 @@
                         </p>
                     </div>
 
-                    <!-- Actions -->
-                    <div class="mt-6 flex justify-between">
-                        <form action="{{ route('admin.certificates.destroy', $certificate) }}" method="POST"
-                            onsubmit="return confirm('Are you sure you want to delete this certificate? This action cannot be undone.')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                Delete Certificate
-                            </button>
-                        </form>
+                <!-- Actions -->
+                <div class="mt-6 flex justify-between">
+                    <form action="{{ route('admin.certificates.destroy', $certificate) }}" method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete this certificate? This action cannot be undone.')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                            class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">
+                            Delete Certificate
+                        </button>
+                    </form>
 
-                        <a href="{{ route('certificate.verify.show', $certificate->certificate_id) }}" target="_blank"
-                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            View Verification Page
-                        </a>
-                    </div>
+                    <a href="{{ route('certificate.verify.show', $certificate->certificate_id) }}" target="_blank"
+                        class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
+                        View Verification Page
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(function() {
-                alert('URL copied to clipboard!');
-            }, function(err) {
-                console.error('Could not copy text: ', err);
-            });
-        }
-    </script>
-</x-app-layout>
+@push('scripts')
+<script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('URL copied to clipboard!');
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
+</script>
+@endpush
+@endsection
