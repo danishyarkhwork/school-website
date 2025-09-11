@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class CertificateController extends Controller
@@ -153,7 +154,25 @@ class CertificateController extends Controller
                 'Pragma' => 'no-cache',
             ]);
         } catch (\Throwable $e) {
-            return back()->with('error', 'Failed to generate QR code. Please try again.');
+            Log::error('QR PNG generation failed: ' . $e->getMessage());
+            try {
+                $svg = QrCode::format('svg')
+                    ->size(600)
+                    ->margin(1)
+                    ->errorCorrection('M')
+                    ->generate($data);
+
+                $svgName = $certificate->certificate_id . '.svg';
+                return response($svg, 200, [
+                    'Content-Type' => 'image/svg+xml',
+                    'Content-Disposition' => 'attachment; filename="' . $svgName . '"',
+                    'Cache-Control' => 'no-store, no-cache, must-revalidate, max-age=0',
+                    'Pragma' => 'no-cache',
+                ]);
+            } catch (\Throwable $e2) {
+                Log::error('QR SVG generation failed: ' . $e2->getMessage());
+                return back()->with('error', 'Failed to generate QR code. Please try again.');
+            }
         }
     }
 }
