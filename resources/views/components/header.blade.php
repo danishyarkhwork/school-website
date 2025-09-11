@@ -77,7 +77,7 @@
                         </button>
                         <div id="user-menu-dropdown"
                             class="hidden absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg overflow-hidden">
-                            <div class="px-4 py-3 text-sm text-gray-700 border-b">Signed in as<br><span
+                            <div class="px-4 py-3 text-sm text-gray-700 border-b"><span
                                     class="font-medium">{{ auth()->user()->name }}</span></div>
                             <a href="{{ route('dashboard') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-light">Dashboard</a>
