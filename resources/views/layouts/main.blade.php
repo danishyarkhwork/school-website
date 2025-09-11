@@ -6,8 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Varin Academy - Excellence in Education')</title>
-    <meta name="description" content="@yield('description', 'Varin Academy provides quality education and innovative learning programs to shape the leaders of tomorrow.')">
+    @php
+        use App\Services\SeoService;
+        $defaultTitle = 'Varin Academy - Excellence in Education';
+        $defaultDescription =
+            'Varin Academy provides quality education and innovative learning programs to shape the leaders of tomorrow.';
+        $pageTitle = trim($__env->yieldContent('title', $defaultTitle));
+        $pageDescription = trim($__env->yieldContent('description', $defaultDescription));
+        $pageKeywords = trim($__env->yieldContent('keywords', 'education, training, courses, Afghanistan, academy'));
+        $pageImage = trim($__env->yieldContent('image', asset('assets/images/varin-academy-logo.svg')));
+        $pageType = trim($__env->yieldContent('type', 'website'));
+        $seo = SeoService::generateMetaTags(
+            $pageTitle,
+            $pageDescription,
+            $pageKeywords,
+            $pageImage,
+            url()->current(),
+            $pageType,
+        );
+        $orgSchema = SeoService::generateStructuredData('Organization', []);
+    @endphp
+
+    <title>{{ $seo['title'] }}</title>
+    <meta name="description" content="{{ $seo['description'] }}">
+    @if (!empty($seo['keywords']))
+        <meta name="keywords" content="{{ $seo['keywords'] }}">
+    @endif
+
+    <link rel="canonical" href="{{ $seo['url'] }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ $seo['title'] }}">
+    <meta property="og:description" content="{{ $seo['description'] }}">
+    <meta property="og:image" content="{{ $seo['image'] }}">
+    <meta property="og:url" content="{{ $seo['url'] }}">
+    <meta property="og:type" content="{{ $seo['type'] }}">
+    <meta property="og:site_name" content="{{ $seo['site_name'] }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $seo['title'] }}">
+    <meta name="twitter:description" content="{{ $seo['description'] }}">
+    <meta name="twitter:image" content="{{ $seo['image'] }}">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">{!! json_encode($orgSchema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) !!}</script>
+
+    @yield('meta')
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">

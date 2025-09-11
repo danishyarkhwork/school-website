@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route as RouteFacade;
 
 class SitemapController extends Controller
 {
@@ -47,7 +48,16 @@ class SitemapController extends Controller
             ['url' => route('gallery'), 'priority' => '0.7', 'changefreq' => 'weekly'],
             ['url' => route('contact'), 'priority' => '0.8', 'changefreq' => 'monthly'],
             ['url' => route('certificate.verify'), 'priority' => '0.6', 'changefreq' => 'monthly'],
+            // HTML sitemap
+            ['url' => url('/sitemap'), 'priority' => '0.5', 'changefreq' => 'weekly'],
         ];
+
+        if (RouteFacade::has('login')) {
+            $pages[] = ['url' => route('login'), 'priority' => '0.3', 'changefreq' => 'yearly'];
+        }
+        if (RouteFacade::has('register')) {
+            $pages[] = ['url' => route('register'), 'priority' => '0.3', 'changefreq' => 'yearly'];
+        }
 
         foreach ($pages as $page) {
             $sitemap .= '<url>';

@@ -141,6 +141,8 @@
                     Policy</a>
                 <a href="#" class="text-gray-300 hover:text-accent text-sm transition-colors duration-200">Terms
                     of Service</a>
+                <a href="{{ route('sitemap.html') }}"
+                    class="text-gray-300 hover:text-accent text-sm transition-colors duration-200">Sitemap</a>
             </div>
         </div>
     </div>

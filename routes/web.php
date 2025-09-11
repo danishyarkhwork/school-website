@@ -47,6 +47,7 @@ Route::get('/certificate/search', [CertificateVerificationController::class, 'se
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
 Route::get('/sitemap-pages.xml', [SitemapController::class, 'pages'])->name('sitemap.pages');
 Route::get('/sitemap-news.xml', [SitemapController::class, 'news'])->name('sitemap.news');
+Route::view('/sitemap', 'sitemap')->name('sitemap.html');
 
 // Dashboard route (protected)
 Route::get('/dashboard', function () {
