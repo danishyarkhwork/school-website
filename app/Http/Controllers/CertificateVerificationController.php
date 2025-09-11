@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Certificate;
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 
 class CertificateVerificationController extends Controller
 {
@@ -17,7 +16,7 @@ class CertificateVerificationController extends Controller
     }
 
     /**
-     * Verify certificate by ID
+     * Verify a certificate by ID
      */
     public function verify(Request $request)
     {
@@ -28,126 +27,45 @@ class CertificateVerificationController extends Controller
         $certificate = Certificate::where('certificate_id', $request->certificate_id)->first();
 
         if (!$certificate) {
-            return view('certificate.result', [
-                'found' => false,
-                'message' => 'Certificate not found. Please check the certificate ID and try again.'
-            ]);
+            return redirect()->route('certificate.verify')
+                ->with('error', 'Certificate not found. Please check the certificate ID and try again.');
         }
 
-        // Mark as verified if not already verified
-        if (!$certificate->is_verified) {
-            $certificate->markAsVerified(
-                $request->ip(),
-                'Verified via website search'
-            );
-        }
-
-        return view('certificate.result', [
-            'found' => true,
-            'certificate' => $certificate
-        ]);
+        return view('certificate.result', compact('certificate'));
     }
 
     /**
-     * Verify certificate by ID (for direct URL access)
+     * Show certificate verification result by direct ID access
      */
-    public function verifyById(string $id)
+    public function show($id)
     {
         $certificate = Certificate::where('certificate_id', $id)->first();
 
         if (!$certificate) {
-            return view('certificate.result', [
-                'found' => false,
-                'message' => 'Certificate not found. Please check the certificate ID and try again.'
-            ]);
+            return view('certificate.not-found', ['certificate_id' => $id]);
         }
 
-        // Mark as verified if not already verified
-        if (!$certificate->is_verified) {
-            $certificate->markAsVerified(
-                request()->ip(),
-                'Verified via QR code scan'
-            );
-        }
-
-        return view('certificate.result', [
-            'found' => true,
-            'certificate' => $certificate
-        ]);
+        return view('certificate.result', compact('certificate'));
     }
 
     /**
-     * API endpoint for QR code verification
-     */
-    public function apiVerify(Request $request): JsonResponse
-    {
-        $request->validate([
-            'certificate_id' => 'required|string'
-        ]);
-
-        $certificate = Certificate::where('certificate_id', $request->certificate_id)->first();
-
-        if (!$certificate) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Certificate not found'
-            ], 404);
-        }
-
-        // Mark as verified if not already verified
-        if (!$certificate->is_verified) {
-            $certificate->markAsVerified(
-                $request->ip(),
-                'Verified via API/QR scan'
-            );
-        }
-
-        return response()->json([
-            'success' => true,
-            'certificate' => [
-                'certificate_id' => $certificate->certificate_id,
-                'student_name' => $certificate->student_name,
-                'father_name' => $certificate->father_name,
-                'course_name' => $certificate->course_name,
-                'graduation_date' => $certificate->formatted_graduation_date,
-                'teacher_name' => $certificate->teacher_name,
-                'is_verified' => $certificate->is_verified,
-                'verified_at' => $certificate->verified_at?->format('Y-m-d H:i:s'),
-            ]
-        ]);
-    }
-
-    /**
-     * Search certificates (for admin or advanced search)
+     * Search certificates (for admin or API use)
      */
     public function search(Request $request)
     {
-        $request->validate([
-            'search' => 'required|string|min:3'
-        ]);
+        $query = $request->get('q');
+        
+        if (!$query) {
+            return response()->json(['error' => 'Search query is required'], 400);
+        }
 
-        $certificates = Certificate::search($request->search)
-            ->orderBy('created_at', 'desc')
+        $certificates = Certificate::where('certificate_id', 'like', "%{$query}%")
+            ->orWhere('student_name', 'like', "%{$query}%")
+            ->orWhere('student_id', 'like', "%{$query}%")
+            ->orWhere('nic_number', 'like', "%{$query}%")
             ->limit(10)
-            ->get();
+            ->get(['certificate_id', 'student_name', 'student_id', 'graduation_date']);
 
-        return view('certificate.search-results', compact('certificates'));
-    }
-
-    /**
-     * Get certificate statistics
-     */
-    public function statistics(): JsonResponse
-    {
-        $total = Certificate::count();
-        $verified = Certificate::verified()->count();
-        $unverified = Certificate::unverified()->count();
-
-        return response()->json([
-            'total_certificates' => $total,
-            'verified_certificates' => $verified,
-            'unverified_certificates' => $unverified,
-            'verification_rate' => $total > 0 ? round(($verified / $total) * 100, 2) : 0
-        ]);
+        return response()->json($certificates);
     }
 }

@@ -5,34 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\Validator;
 
 class CertificateController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $query = Certificate::query();
-
-        // Search functionality
-        if ($request->filled('search')) {
-            $query->search($request->search);
-        }
-
-        // Filter by verification status
-        if ($request->filled('status')) {
-            if ($request->status === 'verified') {
-                $query->verified();
-            } elseif ($request->status === 'unverified') {
-                $query->unverified();
-            }
-        }
-
-        $certificates = $query->orderBy('created_at', 'desc')->paginate(15);
-
+        $certificates = Certificate::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.certificates.index', compact('certificates'));
     }
 
@@ -49,25 +31,38 @@ class CertificateController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validator = Validator::make($request->all(), [
             'student_name' => 'required|string|max:255',
             'father_name' => 'required|string|max:255',
-            'student_id' => 'required|string|max:255|unique:certificates,student_id',
+            'student_id' => 'required|string|max:255',
             'course_id' => 'required|string|max:255',
-            'course_name' => 'required|string|max:255',
-            'nic_number' => 'required|string|max:255|unique:certificates,nic_number',
+            'nic_number' => 'required|string|max:255',
             'graduation_date' => 'required|date',
             'teacher_name' => 'required|string|max:255',
+            'course_name' => 'required|string|max:255',
         ]);
 
-        // Generate unique certificate ID
-        $validated['certificate_id'] = Certificate::generateCertificateId();
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        // Create certificate
-        $certificate = Certificate::create($validated);
+        $certificate = Certificate::create([
+            'certificate_id' => Certificate::generateCertificateId(),
+            'student_name' => $request->student_name,
+            'father_name' => $request->father_name,
+            'student_id' => $request->student_id,
+            'course_id' => $request->course_id,
+            'nic_number' => $request->nic_number,
+            'graduation_date' => $request->graduation_date,
+            'teacher_name' => $request->teacher_name,
+            'course_name' => $request->course_name,
+            'is_verified' => true,
+        ]);
 
-        // Generate QR code
-        $this->generateQrCode($certificate);
+        // Generate QR code data
+        $certificate->generateQrCodeData();
 
         return redirect()->route('admin.certificates.index')
             ->with('success', 'Certificate created successfully!');
@@ -94,21 +89,25 @@ class CertificateController extends Controller
      */
     public function update(Request $request, Certificate $certificate)
     {
-        $validated = $request->validate([
+        $validator = Validator::make($request->all(), [
             'student_name' => 'required|string|max:255',
             'father_name' => 'required|string|max:255',
-            'student_id' => 'required|string|max:255|unique:certificates,student_id,' . $certificate->id,
+            'student_id' => 'required|string|max:255',
             'course_id' => 'required|string|max:255',
-            'course_name' => 'required|string|max:255',
-            'nic_number' => 'required|string|max:255|unique:certificates,nic_number,' . $certificate->id,
+            'nic_number' => 'required|string|max:255',
             'graduation_date' => 'required|date',
             'teacher_name' => 'required|string|max:255',
+            'course_name' => 'required|string|max:255',
+            'is_verified' => 'boolean',
         ]);
 
-        $certificate->update($validated);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        // Regenerate QR code if needed
-        $this->generateQrCode($certificate);
+        $certificate->update($request->all());
 
         return redirect()->route('admin.certificates.index')
             ->with('success', 'Certificate updated successfully!');
@@ -119,57 +118,9 @@ class CertificateController extends Controller
      */
     public function destroy(Certificate $certificate)
     {
-        // Delete QR code image if exists
-        if ($certificate->qr_code_image && Storage::exists($certificate->qr_code_image)) {
-            Storage::delete($certificate->qr_code_image);
-        }
-
         $certificate->delete();
 
         return redirect()->route('admin.certificates.index')
             ->with('success', 'Certificate deleted successfully!');
-    }
-
-    /**
-     * Generate QR code for certificate
-     */
-    private function generateQrCode(Certificate $certificate)
-    {
-        $qrCodeData = $certificate->generateQrCodeData();
-
-        // Generate QR code as SVG
-        $qrCodeSvg = QrCode::size(200)
-            ->format('svg')
-            ->generate($qrCodeData);
-
-        // Save QR code to storage
-        $fileName = 'qr_codes/' . $certificate->certificate_id . '.svg';
-        Storage::put('public/' . $fileName, $qrCodeSvg);
-
-        // Update certificate with QR code data
-        $certificate->update([
-            'qr_code' => $qrCodeData,
-            'qr_code_image' => $fileName,
-        ]);
-    }
-
-    /**
-     * Download certificate as PDF
-     */
-    public function downloadPdf(Certificate $certificate)
-    {
-        // This will be implemented when we add PDF generation
-        return response()->json(['message' => 'PDF download will be implemented']);
-    }
-
-    /**
-     * Regenerate QR code for certificate
-     */
-    public function regenerateQrCode(Certificate $certificate)
-    {
-        $this->generateQrCode($certificate);
-
-        return redirect()->back()
-            ->with('success', 'QR code regenerated successfully!');
     }
 }
