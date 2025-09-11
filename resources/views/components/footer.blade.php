@@ -102,7 +102,6 @@
                     of Service</a>
                 <a href="#" class="text-gray-300 hover:text-accent text-sm transition-colors duration-200">Cookie
                     Policy</a>
-                <a href="{{ route('login') }}" class="text-gray-200 hover:text-accent text-sm">Login</a>
             </div>
         </div>
     </div>
