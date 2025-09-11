@@ -36,6 +36,10 @@
                     class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('contact') ? 'text-primary' : '' }}">
                     Contact
                 </a>
+                <a href="{{ route('certificate.verify') }}"
+                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('certificate.*') ? 'text-primary' : '' }}">
+                    Verify Certificate
+                </a>
             </nav>
 
             <!-- Right side actions -->

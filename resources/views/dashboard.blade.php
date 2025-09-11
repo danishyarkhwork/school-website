@@ -14,6 +14,9 @@
                 <div class="flex items-center gap-3">
                     <a href="{{ route('admin.posts.index') }}"
                         class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">Manage Posts</a>
+                    <a href="{{ route('admin.certificates.index') }}"
+                        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 shadow-glow">Manage
+                        Certificates</a>
                 </div>
             </div>
         </div>
@@ -22,7 +25,7 @@
     <div class="py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <!-- Stats Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                 <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-accent transition hover:shadow-lg">
                     <div class="flex items-center justify-between">
                         <div>
@@ -34,6 +37,21 @@
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 7h18M3 12h18M3 17h18" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 border-t-4 border-green-500 transition hover:shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-sm text-gray-500">Total Certificates</div>
+                            <div class="mt-2 text-3xl font-bold text-green-600">{{ \App\Models\Certificate::count() }}</div>
+                        </div>
+                        <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                             </svg>
                         </div>
                     </div>
@@ -111,6 +129,17 @@
                         class="group block p-4 rounded-xl border hover:border-primary hover:shadow-md transition">
                         <div class="font-semibold text-primary group-hover:underline">Manage Users</div>
                         <div class="text-sm text-gray-500 group-hover:text-gray-700">Add or update user accounts</div>
+                    </a>
+                    <a href="{{ route('admin.certificates.create') }}"
+                        class="group block p-4 rounded-xl border hover:border-green-600 hover:shadow-md transition">
+                        <div class="font-semibold text-green-600 group-hover:underline">Create Certificate</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-700">Issue a new graduation certificate
+                        </div>
+                    </a>
+                    <a href="{{ route('certificate.verify') }}"
+                        class="group block p-4 rounded-xl border hover:border-blue-600 hover:shadow-md transition">
+                        <div class="font-semibold text-blue-600 group-hover:underline">Verify Certificate</div>
+                        <div class="text-sm text-gray-500 group-hover:text-gray-700">Check certificate authenticity</div>
                     </a>
                 </div>
             </div>
