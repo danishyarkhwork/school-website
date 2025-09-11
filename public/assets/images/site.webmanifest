@@ -2,6 +2,11 @@
     "name": "Varin SkillUp Academy",
     "short_name": "Varin Academy",
     "description": "Leading educational and professional training institute in Afghanistan",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3B82F6",
+    "orientation": "portrait-primary",
     "icons": [
         {
             "src": "/assets/images/android-chrome-192x192.png",
@@ -14,9 +19,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#14133D",
-    "background_color": "#ffffff",
-    "display": "standalone",
-    "start_url": "/",
-    "scope": "/"
+    "categories": ["education", "training", "academy"],
+    "lang": "en",
+    "dir": "ltr"
 }

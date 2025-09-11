@@ -1,2 +1,26 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: {{ url('/sitemap.xml') }}
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+Disallow: /email/verify
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /courses
+Allow: /news
+Allow: /gallery
+Allow: /contact
+Allow: /certificate/verify
+
+# Crawl delay (optional)
+Crawl-delay: 1

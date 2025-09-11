@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\CertificateController as AdminCertificateController;
 use App\Http\Controllers\CertificateVerificationController;
+use App\Http\Controllers\SitemapController;
 
 // Public routes
 Route::get('/', function () {
@@ -38,6 +39,11 @@ Route::get('/certificate/verify', [CertificateVerificationController::class, 'in
 Route::post('/certificate/verify', [CertificateVerificationController::class, 'verify'])->name('certificate.verify.post');
 Route::get('/certificate/verify/{id}', [CertificateVerificationController::class, 'show'])->name('certificate.verify.show');
 Route::get('/certificate/search', [CertificateVerificationController::class, 'search'])->name('certificate.search');
+
+// SEO routes
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
+Route::get('/sitemap-pages.xml', [SitemapController::class, 'pages'])->name('sitemap.pages');
+Route::get('/sitemap-news.xml', [SitemapController::class, 'news'])->name('sitemap.news');
 
 // Dashboard route (protected)
 Route::get('/dashboard', function () {

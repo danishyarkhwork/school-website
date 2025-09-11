@@ -1,12 +1,11 @@
 import "./bootstrap";
 
 import Alpine from "alpinejs";
-import { animate, scroll, timeline, stagger, inView } from "motion";
+import { animate, scroll, stagger, inView } from "motion";
 
 window.Alpine = Alpine;
 window.animate = animate;
 window.scroll = scroll;
-window.timeline = timeline;
 window.stagger = stagger;
 window.inView = inView;
 
