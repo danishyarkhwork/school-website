@@ -241,9 +241,9 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
                 <div class="text-center mb-8">
-                    <div
-                        class="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-white font-bold text-xl">AR</span>
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-white shadow-lg">
+                        <img src="{{ asset('assets/images/rashid-alami.jpeg') }}" alt="Abdul Rashid Alami"
+                            class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <h3 class="text-2xl font-bold text-primary mb-2">CEO's Message</h3>
                     <p class="text-gray-600">Abdul Rashid Alami - Founder & CEO</p>

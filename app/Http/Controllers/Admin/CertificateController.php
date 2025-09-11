@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class CertificateController extends Controller
 {
@@ -122,5 +123,37 @@ class CertificateController extends Controller
 
         return redirect()->route('admin.certificates.index')
             ->with('success', 'Certificate deleted successfully!');
+    }
+
+    /**
+     * Generate QR code image for the certificate and save to public assets
+     */
+    public function generateQr(Certificate $certificate)
+    {
+        // Ensure qr_code_data exists and is up-to-date
+        $data = $certificate->qr_code_data ?: $certificate->generateQrCodeData();
+
+        // We will not save to disk; only stream as download
+
+        try {
+            // Generate PNG bytes locally using Simple QrCode
+            $png = QrCode::format('png')
+                ->size(600)
+                ->margin(1)
+                ->errorCorrection('M')
+                ->generate($data);
+
+            $filename = $certificate->certificate_id . '.png';
+
+            // Stream direct download
+            return response($png, 200, [
+                'Content-Type' => 'image/png',
+                'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+                'Cache-Control' => 'no-store, no-cache, must-revalidate, max-age=0',
+                'Pragma' => 'no-cache',
+            ]);
+        } catch (\Throwable $e) {
+            return back()->with('error', 'Failed to generate QR code. Please try again.');
+        }
     }
 }

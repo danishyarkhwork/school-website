@@ -73,7 +73,7 @@
                                             </span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <div class="flex space-x-2">
+                                            <div class="flex space-x-3 items-center">
                                                 <a href="{{ route('admin.certificates.show', $certificate) }}"
                                                     class="text-blue-600 hover:text-blue-900">View</a>
                                                 <a href="{{ route('admin.certificates.edit', $certificate) }}"
@@ -87,6 +87,21 @@
                                                         Delete
                                                     </button>
                                                 </form>
+                                                <a href="{{ route('admin.certificates.generate-qr', $certificate) }}"
+                                                    class="text-green-700 hover:text-green-900 font-semibold">Generate
+                                                    QR</a>
+                                                @php
+                                                    $qrPath = public_path(
+                                                        'assets/images/certificates/qr/' .
+                                                            $certificate->certificate_id .
+                                                            '.png',
+                                                    );
+                                                @endphp
+                                                @if (file_exists($qrPath))
+                                                    <a href="{{ asset('assets/images/certificates/qr/' . $certificate->certificate_id . '.png') }}"
+                                                        target="_blank" class="text-gray-700 hover:text-gray-900">View
+                                                        QR</a>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>

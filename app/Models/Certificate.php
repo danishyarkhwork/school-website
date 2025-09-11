@@ -45,7 +45,7 @@ class Certificate extends Model
      */
     public function generateQrCodeData()
     {
-        $verificationUrl = route('certificate.verify.show', ['id' => $this->certificate_id]);
+        $verificationUrl = 'https://varinacademy.com/certificate/verify/' . $this->certificate_id;
         $this->qr_code_data = $verificationUrl;
         $this->save();
         return $verificationUrl;

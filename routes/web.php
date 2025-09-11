@@ -61,6 +61,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('posts', AdminPostController::class)->except(['show']);
         Route::resource('users', AdminUserController::class)->except(['show']);
         Route::resource('certificates', AdminCertificateController::class);
+        Route::get('certificates/{certificate}/generate-qr', [AdminCertificateController::class, 'generateQr'])
+            ->name('certificates.generate-qr');
     });
 });
 
