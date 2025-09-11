@@ -4,17 +4,17 @@
 @section('description', 'Admin - edit graduation certificate details')
 
 @section('content')
-<section class="py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-xl shadow overflow-hidden">
-            <div class="p-6">
-                <h1 class="text-2xl font-bold text-primary mb-6">Edit Certificate</h1>
-                
-                <form action="{{ route('admin.certificates.update', $certificate) }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow overflow-hidden">
+                <div class="p-6">
+                    <h1 class="text-2xl font-bold text-primary mb-6">Edit Certificate</h1>
+
+                    <form action="{{ route('admin.certificates.update', $certificate) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Certificate ID (Read-only) -->
                             <div>
                                 <label for="certificate_id" class="block text-sm font-medium text-gray-700">
@@ -158,19 +158,19 @@
                             </div>
                         </div>
 
-                    <div class="mt-6 flex justify-end space-x-3">
-                        <a href="{{ route('admin.certificates.index') }}" 
-                           class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">
-                            Cancel
-                        </a>
-                        <button type="submit" 
+                        <div class="mt-6 flex justify-end space-x-3">
+                            <a href="{{ route('admin.certificates.index') }}"
+                                class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">
+                                Cancel
+                            </a>
+                            <button type="submit"
                                 class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">
-                            Update Certificate
-                        </button>
-                    </div>
-                </form>
+                                Update Certificate
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection

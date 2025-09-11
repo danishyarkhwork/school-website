@@ -4,16 +4,16 @@
 @section('description', 'Admin - create a new graduation certificate')
 
 @section('content')
-<section class="py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-xl shadow overflow-hidden">
-            <div class="p-6">
-                <h1 class="text-2xl font-bold text-primary mb-6">Add New Certificate</h1>
-                
-                <form action="{{ route('admin.certificates.store') }}" method="POST">
-                    @csrf
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow overflow-hidden">
+                <div class="p-6">
+                    <h1 class="text-2xl font-bold text-primary mb-6">Add New Certificate</h1>
+
+                    <form action="{{ route('admin.certificates.store') }}" method="POST">
+                        @csrf
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Student Name -->
                             <div>
                                 <label for="student_name" class="block text-sm font-medium text-gray-700">
@@ -33,8 +33,7 @@
                                 <label for="father_name" class="block text-sm font-medium text-gray-700">
                                     Father Name *
                                 </label>
-                                <input type="text" name="father_name" id="father_name"
-                                    value="{{ old('father_name') }}"
+                                <input type="text" name="father_name" id="father_name" value="{{ old('father_name') }}"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @error('father_name') border-red-500 @enderror"
                                     required>
                                 @error('father_name')
@@ -114,8 +113,7 @@
                                 <label for="course_name" class="block text-sm font-medium text-gray-700">
                                     Course Name *
                                 </label>
-                                <input type="text" name="course_name" id="course_name"
-                                    value="{{ old('course_name') }}"
+                                <input type="text" name="course_name" id="course_name" value="{{ old('course_name') }}"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @error('course_name') border-red-500 @enderror"
                                     required>
                                 @error('course_name')
@@ -124,19 +122,19 @@
                             </div>
                         </div>
 
-                    <div class="mt-6 flex justify-end space-x-3">
-                        <a href="{{ route('admin.certificates.index') }}" 
-                           class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">
-                            Cancel
-                        </a>
-                        <button type="submit" 
+                        <div class="mt-6 flex justify-end space-x-3">
+                            <a href="{{ route('admin.certificates.index') }}"
+                                class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">
+                                Cancel
+                            </a>
+                            <button type="submit"
                                 class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">
-                            Create Certificate
-                        </button>
-                    </div>
-                </form>
+                                Create Certificate
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection

@@ -45,9 +45,23 @@ class Certificate extends Model
      */
     public function generateQrCodeData()
     {
-        $verificationUrl = route('certificate.verify', ['id' => $this->certificate_id]);
+        $verificationUrl = route('certificate.verify.show', ['id' => $this->certificate_id]);
         $this->qr_code_data = $verificationUrl;
         $this->save();
         return $verificationUrl;
+    }
+
+    /**
+     * Get QR code URL for display
+     */
+    public function getQrCodeUrl()
+    {
+        if (!$this->qr_code_data) {
+            $this->generateQrCodeData();
+        }
+        
+        // Generate QR code using Google Charts API (simple approach)
+        $url = urlencode($this->qr_code_data);
+        return "https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={$url}";
     }
 }
