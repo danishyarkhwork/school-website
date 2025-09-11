@@ -121,6 +121,10 @@
                 © {{ date('Y') }} Varin SkillUp Academy. All rights reserved.
                 <span class="mx-2 text-white/20">|</span>
                 <a href="{{ route('login') }}" class="underline text-gray-200 hover:text-accent">Admin Login</a>
+                <span class="mx-2 text-white/20">|</span>
+                <span class="text-gray-300">Design by: </span>
+                <a href="https://khaliddanishyar.com" target="_blank" rel="noopener noreferrer"
+                    class="underline text-gray-200 hover:text-accent">Khalid Danishyar</a>
             </p>
             <div class="flex space-x-6 mt-4 md:mt-0 items-center">
                 <a href="#"

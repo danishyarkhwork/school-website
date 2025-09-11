@@ -11,34 +11,55 @@
             </div>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-8">
+            <nav class="hidden md:flex items-center space-x-2">
                 <a href="{{ route('home') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('home') ? 'text-primary' : '' }}">
+                    class="relative px-3 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('home') ? 'text-primary' : '' }}">
                     Home
+                    @if (request()->routeIs('home'))
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+                    @endif
                 </a>
                 <a href="{{ route('about') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('about') ? 'text-primary' : '' }}">
+                    class="relative px-3 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('about') ? 'text-primary' : '' }}">
                     About
+                    @if (request()->routeIs('about'))
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+                    @endif
                 </a>
                 <a href="{{ route('courses') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('courses') ? 'text-primary' : '' }}">
+                    class="relative px-3 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('courses') ? 'text-primary' : '' }}">
                     Courses
+                    @if (request()->routeIs('courses'))
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+                    @endif
                 </a>
                 <a href="{{ route('news.index') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('news.*') ? 'text-primary' : '' }}">
+                    class="relative px-3 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('news.*') ? 'text-primary' : '' }}">
                     News
+                    @if (request()->routeIs('news.*'))
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+                    @endif
                 </a>
                 <a href="{{ route('gallery') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('gallery') ? 'text-primary' : '' }}">
+                    class="relative px-3 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('gallery') ? 'text-primary' : '' }}">
                     Gallery
+                    @if (request()->routeIs('gallery'))
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+                    @endif
                 </a>
                 <a href="{{ route('contact') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('contact') ? 'text-primary' : '' }}">
+                    class="relative px-3 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('contact') ? 'text-primary' : '' }}">
                     Contact
+                    @if (request()->routeIs('contact'))
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+                    @endif
                 </a>
                 <a href="{{ route('certificate.verify') }}"
-                    class="text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('certificate.*') ? 'text-primary' : '' }}">
+                    class="relative px-3 py-2 text-gray-700 hover:text-primary font-medium transition-colors duration-200 {{ request()->routeIs('certificate.*') ? 'text-primary' : '' }}">
                     Verify Certificate
+                    @if (request()->routeIs('certificate.*'))
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+                    @endif
                 </a>
             </nav>
 
@@ -89,28 +110,32 @@
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
                 <a href="{{ route('home') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('home') ? 'text-primary' : '' }}">
+                    class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium rounded-md transition-colors duration-200 {{ request()->routeIs('home') ? 'text-primary bg-primary/10' : '' }}">
                     Home
                 </a>
                 <a href="{{ route('about') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('about') ? 'text-primary' : '' }}">
+                    class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium rounded-md transition-colors duration-200 {{ request()->routeIs('about') ? 'text-primary bg-primary/10' : '' }}">
                     About
                 </a>
                 <a href="{{ route('courses') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('courses') ? 'text-primary' : '' }}">
+                    class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium rounded-md transition-colors duration-200 {{ request()->routeIs('courses') ? 'text-primary bg-primary/10' : '' }}">
                     Courses
                 </a>
                 <a href="{{ route('news.index') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('news.*') ? 'text-primary' : '' }}">
+                    class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium rounded-md transition-colors duration-200 {{ request()->routeIs('news.*') ? 'text-primary bg-primary/10' : '' }}">
                     News
                 </a>
                 <a href="{{ route('gallery') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('gallery') ? 'text-primary' : '' }}">
+                    class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium rounded-md transition-colors duration-200 {{ request()->routeIs('gallery') ? 'text-primary bg-primary/10' : '' }}">
                     Gallery
                 </a>
                 <a href="{{ route('contact') }}"
-                    class="block px-3 py-2 text-gray-700 hover:text-primary font-medium {{ request()->routeIs('contact') ? 'text-primary' : '' }}">
+                    class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium rounded-md transition-colors duration-200 {{ request()->routeIs('contact') ? 'text-primary bg-primary/10' : '' }}">
                     Contact
+                </a>
+                <a href="{{ route('certificate.verify') }}"
+                    class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 font-medium rounded-md transition-colors duration-200 {{ request()->routeIs('certificate.*') ? 'text-primary bg-primary/10' : '' }}">
+                    Verify Certificate
                 </a>
                 <div class="px-3 py-2">
                     <a href="{{ route('contact') }}"
