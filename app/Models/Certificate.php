@@ -59,7 +59,7 @@ class Certificate extends Model
         if (!$this->qr_code_data) {
             $this->generateQrCodeData();
         }
-        
+
         // Generate QR code using Google Charts API (simple approach)
         $url = urlencode($this->qr_code_data);
         return "https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={$url}";
