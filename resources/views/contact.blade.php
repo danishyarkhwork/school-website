@@ -67,8 +67,7 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-primary mb-2">Email Us</h3>
-                                <p class="text-gray-600">
-                                    info@varinacademy.com<br>admissions@varinacademy.com</p>
+                                <p class="text-gray-600">info@varinacademy.com</p>
                             </div>
                         </div>
 

@@ -6,13 +6,13 @@ Production-ready Laravel app for an education and training academy site with SEO
 
 ### Preview
 
-![Logo](public/assets/images/logo.jpeg)
+![Template Overview](public/assets/images/template/School%20Template.png)
 
-| Home | Banner | Gallery |
+| Home | About | Certificate Verification |
 | --- | --- | --- |
-| ![Home](public/assets/images/1.jpg) | ![Banner](public/assets/images/banners/banner-1.jpeg) | ![Gallery](public/assets/images/3.jpg) |
+| ![Home](public/assets/images/template/School%20Template.png) | ![About](public/assets/images/template/About%20Page.png) | ![Verify](public/assets/images/template/Certificate%20Verification.png) |
 
-> Images are stored under `public/assets/images` and optimized via Vite/Tailwind in the frontend.
+> Images are stored under `public/assets/images/template` and optimized via Vite/Tailwind in the frontend.
 
 ## Features
 
@@ -116,9 +116,10 @@ Visit `http://127.0.0.1:8000`.
 
 ## Screenshots / Assets
 
-- Logo: `public/assets/images/logo.jpeg`
-- Hero/Preview: `public/assets/images/1.jpg`, `public/assets/images/3.jpg`, `public/assets/images/4.jpg`
-- Banners: `public/assets/images/banners/banner-*.jpeg`
+- Overview: `public/assets/images/template/School Template.png`
+- About: `public/assets/images/template/About Page.png`
+- Verify Certificate: `public/assets/images/template/Certificate Verification.png`
+- Dashboard: `public/assets/images/template/Dashboard.png`
 
 ## License
 
