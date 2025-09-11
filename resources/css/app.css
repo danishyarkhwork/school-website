@@ -3,3 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (min-width: 1024px) {
+    h1.lg\:text-7xl {
+        font-size: 4.5rem !important;
+        line-height: 1.1 !important;
+    }
+}
