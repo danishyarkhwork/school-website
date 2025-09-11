@@ -1,30 +1,27 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Certificate Management') }}
-        </h2>
-    </x-slot>
+@extends('layouts.main')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-medium">All Certificates</h3>
-                        <a href="{{ route('admin.certificates.create') }}"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Add New Certificate
-                        </a>
-                    </div>
+@section('title', 'Certificate Management - Admin')
+@section('description', 'Admin - manage graduation certificates')
 
-                    @if (session('success'))
-                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+@section('content')
+<section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-2xl font-bold text-primary">Certificate Management</h1>
+                    <a href="{{ route('admin.certificates.create') }}" 
+                       class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-glow">
+                        Add New Certificate
+                    </a>
+                </div>
 
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
+                @if (session('success'))
+                    <div class="mb-4 p-3 bg-green-100 text-green-800 rounded">{{ session('success') }}</div>
+                @endif
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th
@@ -104,11 +101,11 @@
                         </table>
                     </div>
 
-                    <div class="mt-4">
-                        {{ $certificates->links() }}
-                    </div>
+                <div class="mt-4">
+                    {{ $certificates->links() }}
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+</section>
+@endsection
