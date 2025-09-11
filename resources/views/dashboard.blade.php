@@ -7,7 +7,7 @@
     <section class="relative py-12 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Welcome Header -->
-            <div class="text-center mb-12">
+            <div class="text-center mb-6">
                 <div class="flex items-center justify-center mb-4">
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
                         <i class="fas fa-tachometer-alt text-white text-2xl"></i>
@@ -17,9 +17,9 @@
                     Welcome to Admin Dashboard
                 </h1>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Manage your school website content, certificates, and users from one central location
+                    Manage your academy website content, certificates, and users from one central location
                 </p>
-                <div class="mt-6 flex flex-wrap justify-center gap-4">
+                <div class="mt-3 flex flex-wrap justify-center gap-4">
                     <a href="{{ route('admin.posts.create') }}"
                         class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-lg transition-all duration-300 transform hover:scale-105">
                         <i class="fas fa-plus mr-2"></i>
@@ -40,7 +40,7 @@
         </div>
     </section>
 
-    <div class="py-10 bg-gray-50">
+    <div class="py-6 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -187,18 +187,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ route('news.index') }}"
-                                    class="group flex items-center p-4 rounded-xl border-2 border-transparent hover:border-blue-600 hover:shadow-md transition-all duration-300">
-                                    <div
-                                        class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors">
-                                        <i class="fas fa-external-link-alt text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold text-gray-800 group-hover:text-blue-600">View Public Site
-                                        </div>
-                                        <div class="text-sm text-gray-500">See how visitors see it</div>
-                                    </div>
-                                </a>
+
 
                                 <a href="{{ route('certificate.verify') }}"
                                     class="group flex items-center p-4 rounded-xl border-2 border-transparent hover:border-indigo-600 hover:shadow-md transition-all duration-300">
@@ -210,6 +199,18 @@
                                         <div class="font-semibold text-gray-800 group-hover:text-indigo-600">Verify
                                             Certificate</div>
                                         <div class="text-sm text-gray-500">Check certificate authenticity</div>
+                                    </div>
+                                </a>
+
+                                <a href="{{ route('admin.settings.edit') }}"
+                                    class="group flex items-center p-4 rounded-xl border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-gray-200 transition-colors">
+                                        <i class="fas fa-cog text-gray-700"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-800 group-hover:text-gray-700">Settings</div>
+                                        <div class="text-sm text-gray-500">General site configuration</div>
                                     </div>
                                 </a>
                             </div>

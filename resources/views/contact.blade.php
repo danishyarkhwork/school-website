@@ -129,37 +129,53 @@
                 <!-- Contact Form -->
                 <div>
                     <h2 class="text-3xl font-bold text-primary mb-8">Send us a Message</h2>
-                    <form class="space-y-6">
+                    @if (session('success'))
+                        <div class="mb-6 p-3 bg-green-100 text-green-800 rounded">{{ session('success') }}</div>
+                    @endif
+                    <form class="space-y-6" method="POST" action="{{ route('contact.send') }}">
+                        @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">First
                                     Name</label>
-                                <input type="text" id="first_name" name="first_name"
+                                <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                                     required>
+                                @error('first_name')
+                                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div>
                                 <label for="last_name" class="block text-sm font-medium text-gray-700 mb-2">Last
                                     Name</label>
-                                <input type="text" id="last_name" name="last_name"
+                                <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                                     required>
+                                @error('last_name')
+                                    <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email
                                 Address</label>
-                            <input type="email" id="email" name="email"
+                            <input type="email" id="email" name="email" value="{{ old('email') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                                 required>
+                            @error('email')
+                                <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone
                                 Number</label>
-                            <input type="tel" id="phone" name="phone"
+                            <input type="tel" id="phone" name="phone" value="{{ old('phone') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent">
+                            @error('phone')
+                                <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
@@ -167,19 +183,25 @@
                             <select id="subject" name="subject"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent">
                                 <option value="">Select a subject</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="admissions">Admissions</option>
-                                <option value="courses">Course Information</option>
-                                <option value="support">Technical Support</option>
-                                <option value="other">Other</option>
+                                <option value="general" @selected(old('subject') === 'general')>General Inquiry</option>
+                                <option value="admissions" @selected(old('subject') === 'admissions')>Admissions</option>
+                                <option value="courses" @selected(old('subject') === 'courses')>Course Information</option>
+                                <option value="support" @selected(old('subject') === 'support')>Technical Support</option>
+                                <option value="other" @selected(old('subject') === 'other')>Other</option>
                             </select>
+                            @error('subject')
+                                <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
                             <textarea id="message" name="message" rows="6"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
-                                placeholder="Tell us how we can help you..." required></textarea>
+                                placeholder="Tell us how we can help you..." required>{{ old('message') }}</textarea>
+                            @error('message')
+                                <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <button type="submit"
